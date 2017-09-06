@@ -1,20 +1,14 @@
 package com.dastechlabs.sensordashboard;
 
-import android.graphics.Color;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-
-import com.github.mikephil.charting.charts.LineChart;
-import com.github.mikephil.charting.data.Entry;
-import com.github.mikephil.charting.data.LineData;
-import com.github.mikephil.charting.data.LineDataSet;
-
-import java.util.ArrayList;
-import java.util.List;
+import android.view.View;
+import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity {
 
-    private LineChart chart;
+    private Button openLineChartExample;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,27 +16,15 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
 
-        // instantiate chart
-        chart = (LineChart) findViewById(R.id.line_chart);
+        // instantiate buttons
+        openLineChartExample = findViewById(R.id.line_example_button);
 
-        List<Entry> entries = new ArrayList<Entry>();
-
-
-        // adding data points to the entry list
-        for (int i = 0; i < 10; i++) {
-            entries.add(new Entry(i,i^2));
-        }
-
-        // stylization
-        LineDataSet dataSet = new LineDataSet(entries, "Label");
-        dataSet.setColor(Color.GREEN);
-        dataSet.setValueTextColor(Color.RED);
-
-        // updating data and refreshing
-        LineData lineData = new LineData(dataSet);
-        chart.setData(lineData);
-        chart.invalidate(); // refresh
-
-
+        openLineChartExample.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(MainActivity.this, Example1LineChart.class);
+                startActivity(i);
+            }
+        });
     }
 }
