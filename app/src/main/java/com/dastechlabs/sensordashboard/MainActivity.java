@@ -22,19 +22,23 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
 
+        // instantiate chart
         chart = (LineChart) findViewById(R.id.line_chart);
 
         List<Entry> entries = new ArrayList<Entry>();
 
 
+        // adding data points to the entry list
         for (int i = 0; i < 10; i++) {
-            entries.add(new Entry(i,i));
+            entries.add(new Entry(i,i^2));
         }
 
+        // stylization
         LineDataSet dataSet = new LineDataSet(entries, "Label");
         dataSet.setColor(Color.GREEN);
         dataSet.setValueTextColor(Color.RED);
 
+        // updating data and refreshing
         LineData lineData = new LineData(dataSet);
         chart.setData(lineData);
         chart.invalidate(); // refresh
