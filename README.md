@@ -3,10 +3,11 @@ Examples with Android-MPCharts
 
 
 # Example Page
-
-![Example Page](ScreenCaptures/ExamplePage.png)
-
+<p style="text-align:center">  
+  <img src="ScreenCaptures/ExamplePage.png" width="300px"/>
+</p>
 
 # Line Chart
-
-![Line Chart Example](ScreenCaptures/LineExample.png)
+<p style="text-align:center">  
+  <img src="ScreenCaptures/LineExample.png" width="300px"/>
+</p>
